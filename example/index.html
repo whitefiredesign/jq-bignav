@@ -1,0 +1,542 @@
+<html>
+<head>
+    <!-- Live Reload for Grunt -->
+    <script src="//localhost:35729/livereload.js"></script>
+    <!-- / Reload -->
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="../src/jQuery.bigNav.js"></script>
+    <link rel="stylesheet" type="text/css" href="../src/jQuery.bigNav.css" />
+
+    <!-- Example Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../src/jQuery.bigNav.example.css" />
+
+    <script type="text/javascript">
+        $(function() {
+            $('.example').bigNav({
+                navButtonClass    : 'bignav-trigger',
+                navTextOpen       : 'Open',
+                navTextClose      : 'Close',
+                subNavTextOpen    : '+',
+                subNavTextClose   : '-',
+                subtractHeight    : 100
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <!-- bignav -->
+    <div class="example">
+        <div class="bignav-container">
+            <div class="bignav-grid">
+
+                <div class="bignav-grid-block">
+                    <h2 class="blue">Header Blue</h2>
+                    <nav>
+                        <ul>
+                            <li><a href="">Home</a></li>
+                            <li><a href="">About</a></li>
+                            <li><a href="">Services</a></li>
+                            <li><a href="">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="bignav-grid-block">
+                    <h2 class="green">Header Green</h2>
+
+                    <nav>
+                        <ul>
+                            <li><a href="">CSS</a></li>
+                            <li><a href="">JavaScript</a>
+                                <ul class="sub-nav">
+                                    <li><a href="">Operator precedence</a></li>
+                                    <li><a href="">Associativity</a></li>
+                                    <li><a href="">Execution context</a></li>
+                                    <li><a href="">The 'this' keyword</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="">PHP</a>
+                                <ul class="sub-nav">
+                                    <li><a href="">Object Oriented</a></li>
+                                    <li><a href="">Namespaces</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="">Python</a>
+                                <ul class="sub-nav">
+                                    <li><a href="">Lists</a></li>
+                                    <li><a href="">Tuples constructor</a></li>
+                                    <li><a href="">Lambda functions</a></li>
+                                    <li><a href="">Currying</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="bignav-grid-block">
+                    <h2 class="red">Header Red</h2>
+
+                    <nav>
+                        <ul>
+                            <li><a href="">Linux</a></li>
+                            <li><a href="">Windows</a></li>
+                            <li><a href="">MacOSX</a></li>
+                            <li><a href="">FreeBSD</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="bignav-grid-block">
+                    <h2 class="blue">Header Blue</h2>
+                    <nav>
+                        <ul>
+                            <li><a href="">Home</a></li>
+                            <li><a href="">About</a></li>
+                            <li><a href="">Services</a></li>
+                            <li><a href="">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="bignav-grid-block">
+                    <h2 class="green">Header Green</h2>
+
+                    <nav>
+                        <ul>
+                            <li><a href="">CSS</a></li>
+                            <li><a href="">JavaScript</a>
+                                <ul class="sub-nav">
+                                    <li><a href="">Operator precedence</a></li>
+                                    <li><a href="">Associativity</a></li>
+                                    <li><a href="">Execution context</a></li>
+                                    <li><a href="">The 'this' keyword</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="">PHP</a>
+                                <ul class="sub-nav">
+                                    <li><a href="">Object Oriented</a></li>
+                                    <li><a href="">Namespaces</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="">Python</a>
+                                <ul class="sub-nav">
+                                    <li><a href="">Lists</a></li>
+                                    <li><a href="">Tuples constructor</a></li>
+                                    <li><a href="">Lambda functions</a></li>
+                                    <li><a href="">Currying</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="bignav-grid-block">
+                    <h2 class="red">Header Red</h2>
+
+                    <nav>
+                        <ul>
+                            <li><a href="">Linux</a></li>
+                            <li><a href="">Windows</a></li>
+                            <li><a href="">MacOSX</a></li>
+                            <li><a href="">FreeBSD</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="bignav-grid-block">
+                    <h2 class="blue">Header Blue</h2>
+                    <nav>
+                        <ul>
+                            <li><a href="">Home</a></li>
+                            <li><a href="">About</a></li>
+                            <li><a href="">Services</a></li>
+                            <li><a href="">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="bignav-grid-block">
+                    <h2 class="green">Header Green</h2>
+
+                    <nav>
+                        <ul>
+                            <li><a href="">CSS</a></li>
+                            <li><a href="">JavaScript</a>
+                                <ul class="sub-nav">
+                                    <li><a href="">Operator precedence</a></li>
+                                    <li><a href="">Associativity</a></li>
+                                    <li><a href="">Execution context</a></li>
+                                    <li><a href="">The 'this' keyword</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="">PHP</a>
+                                <ul class="sub-nav">
+                                    <li><a href="">Object Oriented</a></li>
+                                    <li><a href="">Namespaces</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="">Python</a>
+                                <ul class="sub-nav">
+                                    <li><a href="">Lists</a></li>
+                                    <li><a href="">Tuples constructor</a></li>
+                                    <li><a href="">Lambda functions</a></li>
+                                    <li><a href="">Currying</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="bignav-grid-block">
+                    <h2 class="red">Header Red</h2>
+
+                    <nav>
+                        <ul>
+                            <li><a href="">Linux</a></li>
+                            <li><a href="">Windows</a></li>
+                            <li><a href="">MacOSX</a></li>
+                            <li><a href="">FreeBSD</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="bignav-grid-block">
+                    <h2 class="blue">Header Blue</h2>
+                    <nav>
+                        <ul>
+                            <li><a href="">Home</a></li>
+                            <li><a href="">About</a></li>
+                            <li><a href="">Services</a></li>
+                            <li><a href="">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="bignav-grid-block">
+                    <h2 class="green">Header Green</h2>
+
+                    <nav>
+                        <ul>
+                            <li><a href="">CSS</a></li>
+                            <li><a href="">JavaScript</a>
+                                <ul class="sub-nav">
+                                    <li><a href="">Operator precedence</a></li>
+                                    <li><a href="">Associativity</a></li>
+                                    <li><a href="">Execution context</a></li>
+                                    <li><a href="">The 'this' keyword</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="">PHP</a>
+                                <ul class="sub-nav">
+                                    <li><a href="">Object Oriented</a></li>
+                                    <li><a href="">Namespaces</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="">Python</a>
+                                <ul class="sub-nav">
+                                    <li><a href="">Lists</a></li>
+                                    <li><a href="">Tuples constructor</a></li>
+                                    <li><a href="">Lambda functions</a></li>
+                                    <li><a href="">Currying</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="bignav-grid-block">
+                    <h2 class="red">Header Red</h2>
+
+                    <nav>
+                        <ul>
+                            <li><a href="">Linux</a></li>
+                            <li><a href="">Windows</a></li>
+                            <li><a href="">MacOSX</a></li>
+                            <li><a href="">FreeBSD</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="bignav-grid-block">
+                    <h2 class="blue">Header Blue</h2>
+                    <nav>
+                        <ul>
+                            <li><a href="">Home</a></li>
+                            <li><a href="">About</a></li>
+                            <li><a href="">Services</a></li>
+                            <li><a href="">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="bignav-grid-block">
+                    <h2 class="green">Header Green</h2>
+
+                    <nav>
+                        <ul>
+                            <li><a href="">CSS</a></li>
+                            <li><a href="">JavaScript</a>
+                                <ul class="sub-nav">
+                                    <li><a href="">Operator precedence</a></li>
+                                    <li><a href="">Associativity</a></li>
+                                    <li><a href="">Execution context</a></li>
+                                    <li><a href="">The 'this' keyword</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="">PHP</a>
+                                <ul class="sub-nav">
+                                    <li><a href="">Object Oriented</a></li>
+                                    <li><a href="">Namespaces</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="">Python</a>
+                                <ul class="sub-nav">
+                                    <li><a href="">Lists</a></li>
+                                    <li><a href="">Tuples constructor</a></li>
+                                    <li><a href="">Lambda functions</a></li>
+                                    <li><a href="">Currying</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="bignav-grid-block">
+                    <h2 class="red">Header Red</h2>
+
+                    <nav>
+                        <ul>
+                            <li><a href="">Linux</a></li>
+                            <li><a href="">Windows</a></li>
+                            <li><a href="">MacOSX</a></li>
+                            <li><a href="">FreeBSD</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="bignav-grid-block">
+                    <h2 class="blue">Header Blue</h2>
+                    <nav>
+                        <ul>
+                            <li><a href="">Home</a></li>
+                            <li><a href="">About</a></li>
+                            <li><a href="">Services</a></li>
+                            <li><a href="">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="bignav-grid-block">
+                    <h2 class="green">Header Green</h2>
+
+                    <nav>
+                        <ul>
+                            <li><a href="">CSS</a></li>
+                            <li><a href="">JavaScript</a>
+                                <ul class="sub-nav">
+                                    <li><a href="">Operator precedence</a></li>
+                                    <li><a href="">Associativity</a></li>
+                                    <li><a href="">Execution context</a></li>
+                                    <li><a href="">The 'this' keyword</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="">PHP</a>
+                                <ul class="sub-nav">
+                                    <li><a href="">Object Oriented</a></li>
+                                    <li><a href="">Namespaces</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="">Python</a>
+                                <ul class="sub-nav">
+                                    <li><a href="">Lists</a></li>
+                                    <li><a href="">Tuples constructor</a></li>
+                                    <li><a href="">Lambda functions</a></li>
+                                    <li><a href="">Currying</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="bignav-grid-block">
+                    <h2 class="red">Header Red</h2>
+
+                    <nav>
+                        <ul>
+                            <li><a href="">Linux</a></li>
+                            <li><a href="">Windows</a></li>
+                            <li><a href="">MacOSX</a></li>
+                            <li><a href="">FreeBSD</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="bignav-grid-block">
+                    <h2 class="blue">Header Blue</h2>
+                    <nav>
+                        <ul>
+                            <li><a href="">Home</a></li>
+                            <li><a href="">About</a></li>
+                            <li><a href="">Services</a></li>
+                            <li><a href="">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="bignav-grid-block">
+                    <h2 class="green">Header Green</h2>
+
+                    <nav>
+                        <ul>
+                            <li><a href="">CSS</a></li>
+                            <li><a href="">JavaScript</a>
+                                <ul class="sub-nav">
+                                    <li><a href="">Operator precedence</a></li>
+                                    <li><a href="">Associativity</a></li>
+                                    <li><a href="">Execution context</a></li>
+                                    <li><a href="">The 'this' keyword</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="">PHP</a>
+                                <ul class="sub-nav">
+                                    <li><a href="">Object Oriented</a></li>
+                                    <li><a href="">Namespaces</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="">Python</a>
+                                <ul class="sub-nav">
+                                    <li><a href="">Lists</a></li>
+                                    <li><a href="">Tuples constructor</a></li>
+                                    <li><a href="">Lambda functions</a></li>
+                                    <li><a href="">Currying</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="bignav-grid-block">
+                    <h2 class="red">Header Red</h2>
+
+                    <nav>
+                        <ul>
+                            <li><a href="">Linux</a></li>
+                            <li><a href="">Windows</a></li>
+                            <li><a href="">MacOSX</a></li>
+                            <li><a href="">FreeBSD</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="bignav-grid-block">
+                    <h2 class="blue">Header Blue</h2>
+                    <nav>
+                        <ul>
+                            <li><a href="">Home</a></li>
+                            <li><a href="">About</a></li>
+                            <li><a href="">Services</a></li>
+                            <li><a href="">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="bignav-grid-block">
+                    <h2 class="green">Header Green</h2>
+
+                    <nav>
+                        <ul>
+                            <li><a href="">CSS</a></li>
+                            <li><a href="">JavaScript</a>
+                                <ul class="sub-nav">
+                                    <li><a href="">Operator precedence</a></li>
+                                    <li><a href="">Associativity</a></li>
+                                    <li><a href="">Execution context</a></li>
+                                    <li><a href="">The 'this' keyword</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="">PHP</a>
+                                <ul class="sub-nav">
+                                    <li><a href="">Object Oriented</a></li>
+                                    <li><a href="">Namespaces</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="">Python</a>
+                                <ul class="sub-nav">
+                                    <li><a href="">Lists</a></li>
+                                    <li><a href="">Tuples constructor</a></li>
+                                    <li><a href="">Lambda functions</a></li>
+                                    <li><a href="">Currying</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="bignav-grid-block">
+                    <h2 class="red">Header Red</h2>
+
+                    <nav>
+                        <ul>
+                            <li><a href="">Linux</a></li>
+                            <li><a href="">Windows</a></li>
+                            <li><a href="">MacOSX</a></li>
+                            <li><a href="">FreeBSD</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--  bignav -->
+
+
+    <header>
+        <div class="wrapper">
+            <h1 class="alignleft">Header</h1>
+            <button class="bignav-trigger hidden alignright"></button>
+        </div>
+    </header>
+
+    <main>
+        <div class="wrapper">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </div>
+    </main>
+
+</body>
+</html>

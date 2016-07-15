@@ -1,0 +1,61 @@
+.bignav-trigger {
+  position:relative;
+  z-index:999;
+  opacity:1;
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+
+  &.hidden {
+    opacity:0;
+  }
+}
+
+.bignav {
+  visibility:hidden;
+  position:fixed;
+  left:0;
+  top:0;
+  height:100%;
+  width:100%;
+  background:white;
+  overflow-y:scroll;
+
+  .bignav-container {
+    transform: scale(0);
+    transition: transform .5s ease-in-out;
+    -webkit-transition: transform .5s ease-in-out;
+  }
+
+  &.bignav-open {
+    visibility:inherit;
+
+    .bignav-container {
+      transform: scale(1);
+    }
+  }
+
+  li {
+    position:relative;
+    padding-left:15px;
+  }
+
+  // Sub nav styles
+  span.bignav-sub-open {
+    position:absolute;
+    top:0;
+    left:0;
+    cursor:pointer;
+    font-size:20px;
+  }
+
+  ul.sub-nav {
+    max-height: 0;
+    transition: max-height 0.15s ease-out;
+    overflow: hidden;
+
+    &.sub-open {
+      max-height: 500px;
+      transition: max-height 0.25s ease-in;
+    }
+  }
+}

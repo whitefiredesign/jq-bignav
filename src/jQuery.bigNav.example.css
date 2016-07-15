@@ -1,0 +1,52 @@
+.bignav-grid .bignav-grid-block {
+  width: calc(100% / 3);
+  float: left;
+}
+.wrapper {
+  width: 900px;
+  margin: 0 auto;
+}
+.alignright {
+  float: right;
+}
+.alignleft {
+  float: left;
+}
+header {
+  background: #333333;
+  height: 100px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  color: white;
+}
+main {
+  margin-top: 100px;
+}
+.bignav {
+  top: 100px;
+}
+.blue {
+  color: #0000FF;
+}
+.green {
+  color: #008000;
+}
+.red {
+  color: #FF0000;
+}
+.clearfix {
+  clear: both;
+}
+.bignav-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.bignav-container ul {
+  margin: 0;
+  padding: 0;
+}
+.bignav-container ul li {
+  list-style-type: none;
+}
