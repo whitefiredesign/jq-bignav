@@ -171,13 +171,74 @@
 
                             // this is now the button in this context
                             $(this).html(settings.subNavTextClose);
+
+                            // Open sub nav
+                            $this.showSubNav(that, 1);
                         } else {
                             $(this).html(settings.subNavTextOpen);
+
+                            // Close sub nav
+                            $this.showSubNav(that, 0);
                         }
                     });
                 });
 
                 return false;
+            };
+
+            /**
+             * Display sub nav when icon clicked
+             *
+             * @param subNavEl
+             *      - The sub UL nav element
+             * @param state
+             *      - 0 = close 1 = open
+             * @returns {boolean}
+             */
+            this.showSubNav = function(subNavEl, state) {
+
+                // Get the element height
+                var subNavHeight = subNavEl.height();
+
+                // Trigger open state
+                if(state==1) {
+
+                    subNavEl.css({
+                        'display'       : 'block',
+                        'max-height'    : 0,
+                        'transition'    : 'none'
+                    });
+
+                    // Immediately after new css block set run max-height animation
+                    setTimeout(function() {
+                        subNavEl.css({
+                            'max-height'    : subNavHeight + 'px',
+                            'transition'    : 'max-height 0.15s ease-out'
+                        });
+                    },1);
+
+                }
+
+                // Trigger close state
+                if(state==0) {
+
+                    subNavEl.css({
+                        'max-height'    : 0,
+                        'transition'    : 'max-height 0.15s ease-in'
+                    });
+
+                    // In this case wait for animation to finish before assigning display:none
+                    setTimeout(function() {
+                        subNavEl.css({
+                            'max-height'    : subNavHeight + 'px',
+                            'display'       : 'none',
+                            'transition'    : 'none'
+                        });
+                    },155);
+                }
+
+                return false;
+
             }
         }
 

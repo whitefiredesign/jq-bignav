@@ -41,11 +41,6 @@
   font-size: 20px;
 }
 .bignav ul.sub-nav {
-  max-height: 0;
-  transition: max-height 0.15s ease-out;
   overflow: hidden;
-}
-.bignav ul.sub-nav.sub-open {
-  max-height: 500px;
-  transition: max-height 0.25s ease-in;
+  display: none;
 }
