@@ -2,27 +2,27 @@
 
 ## Install
 ### There is a bower package
-````
+```javascript
 bower install jQuery.bigNav
-````
+```
 
 ## To initialise 
-````
+```javascript
 $('.bignav').bigNav()`
-````
+```
 
 ## Settings
-````
+```javascript
 navButtonClass    : 'bignav-trigger',   // The button used to open the navigation
 navTextOpen       : 'Open',             // Text inside the button nav when closed
 navTextClose      : 'Close',            // Text inside the button nav when opened
 subNavTextOpen    : '+',                // Text inside sub nav trigger when closed
 subNavTextClose   : '-',                // Text inside sub nav trigger when opened
 subtractHeight    : 100                 // Subtracts this amount in pixels from default window.height
-````
+```
 
 ## Using
-````
+```html
     <!-- bignav -->
     <div class="example">
         <div class="bignav-container">
@@ -42,7 +42,7 @@ subtractHeight    : 100                 // Subtracts this amount in pixels from 
             </nav>
         </div>
     </div>
-````
+```
 
 ## Version
 0.1.0 
