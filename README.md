@@ -1,9 +1,9 @@
-# jQuery.bigNav - A simple jQuery navigation solution for all screen sizes
+# jq-bignav - A simple jQuery navigation solution for all screen sizes
 
 ## Install
 ### There is a bower package
 ```javascript
-bower install jQuery.bigNav
+bower install jq-bignav
 ```
 
 ## To initialise 
