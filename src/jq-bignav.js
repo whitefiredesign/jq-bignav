@@ -26,6 +26,7 @@
          * Convert bignav to jQ element
          */
         var bignav_elem = $(this.selector);
+        bignav_elem.removeClass('hidden');
 
         /**
          * Set trigger
