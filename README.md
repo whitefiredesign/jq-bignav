@@ -18,7 +18,11 @@ navTextOpen       : 'Open',             // Text inside the button nav when close
 navTextClose      : 'Close',            // Text inside the button nav when opened
 subNavTextOpen    : '+',                // Text inside sub nav trigger when closed
 subNavTextClose   : '-',                // Text inside sub nav trigger when opened
-subtractHeight    : 100                 // Subtracts this amount in pixels from default window.height
+subtractHeight    : 100,                // Subtracts this amount in pixels from default window.height
+offsetTop         : 0                   // Menu opens this many pixels from top (adds this value to subtractHeight)
+onOpen            : function(obj) {}    // onOpen callback
+beforeOnClose     : function(obj) {}    // beforeOnClose callback
+onClose           : function(obj) {}    // onClose callback             
 ```
 
 ## Using
@@ -45,11 +49,17 @@ subtractHeight    : 100                 // Subtracts this amount in pixels from 
 ```
 
 ## Version
-0.1.0 
-First commit
+0.1.2
+Added `preventDefault()` to trigger
+Updated default classes to ensure consistency
+Added `onOpen`, `beforeOnClose` and `onClose` parameter callbacks
+Clean-up base stylesheet
 
 0.1.1
 Added dynamic height support for sub navigation blocks
+
+0.1.0 
+First commit
 
 ## Licence
 ### The MIT License (MIT)

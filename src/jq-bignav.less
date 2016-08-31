@@ -1,37 +1,33 @@
-.bignav-trigger {
-  position:relative;
-  z-index:999;
-  opacity:1;
-  -webkit-transition: opacity .5s;
-  transition: opacity .5s;
-
-  &.hidden {
-    opacity:0;
-  }
-}
-
 .bignav {
-  visibility:hidden;
   position:fixed;
   left:0;
   top:0;
   height:100%;
   width:100%;
+  z-index:-1;
   background:white;
-  overflow-y:scroll;
+  opacity:0;
+  transition: opacity .5s ease-in-out;
+  -webkit-transition: opacity .5s ease-in-out;
 
-  .bignav-container {
+  /*.bignav-container {
     transform: scale(0);
     transition: transform .5s ease-in-out;
     -webkit-transition: transform .5s ease-in-out;
+  }*/
+
+  &.bignav-closing {
+    opacity:0 !important;
   }
 
   &.bignav-open {
-    visibility:inherit;
+    z-index:9999;
+    overflow-y:auto;
+    opacity:1;
 
-    .bignav-container {
+    /*.bignav-container {
       transform: scale(1);
-    }
+    }*/
   }
 
   li {
@@ -48,12 +44,12 @@
     font-size:20px;
   }
 
-  ul.sub-nav {
+  ul.sub-nav, ul.sub-menu {
     overflow: hidden;
     display:none;
 
     &.sub-open {
-
+      display:block;
     }
   }
 }

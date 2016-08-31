@@ -7,14 +7,38 @@
             'navTextClose'      : 'Close',          // Test inside Nav Button when nav open
             'subNavTextOpen'    : '+',              
             'subNavTextClose'   : '-',
-            'subtractHeight'    : 0                 // Subtract height of nav in pixels 
+            'subtractHeight'    : 0,                // Subtract height of nav in pixels 
                                                     // Useful when using fixed header/footer and have to offset nav
+            'offsetTop'         : 0,                // Offset nav from top
+            'onOpen'            : function(obj) {
+                return false;                       // onOpen callback
+            },                                      
+            'beforeOnClose'     : function(obj) {
+                return false;                       // beforeOnClose callback
+            },
+            'onClose'           : function(obj) {
+                return false;                       // onClose callback
+            }
+
         }, options);
 
         /**
          * Convert bignav to jQ element
          */
         var bignav_elem = $(this.selector);
+
+        /**
+         * Set trigger
+         * @type {*|HTMLElement}
+         */
+        var trigger = $('.'+settings.navButtonClass);
+
+        /**
+         * Add bignav-trigger class on trigger if not exist
+         */
+        if(!trigger.hasClass('bignav-trigger')) {
+            trigger.addClass('bignav-trigger');
+        }
 
         /**
          * Add bignav class on bignav if not exist
@@ -28,6 +52,13 @@
          * We can reset this once nav is closed afterwards
          */
         var default_doc_overflow = $('html').css('overflow');
+
+        /**
+         * Get default padding of <html> element
+         * We can restore the padding when the nav is closed
+         * Used primarily when right scrollbar removed
+         */
+        //var default_html_
 
         /**
          * Object with all our methods
@@ -45,9 +76,6 @@
              */
             this.init = function() {
 
-                // Select the trigger
-                var trigger = $('.'+settings.navButtonClass);
-
                 // Remove hidden class from trigger
                 trigger
                     .removeClass('hidden');
@@ -59,7 +87,9 @@
 
 
                 // Bind trigger events
-                trigger.on('click', function() {
+                trigger.unbind().on('click', function(ev) {
+                    ev.preventDefault();
+
                     if(trigger.hasClass('bignav-closed')) {
 
                         // trigger opens menu
@@ -97,12 +127,16 @@
 
                 // Hide document scrollbar when nav open
                 $('html').css({
-                    overflow : 'hidden'
+                    'overflow'      : 'hidden',
+                    'margin-right'  : $this.getScrollBarWidth() + 'px'
                 });
 
                 // Set the height of bignav_elem
                 $this.setHeight();
 
+                // trigger onOpen callback
+                settings.onOpen($this.getData());
+                
                 return false;
             };
 
@@ -110,12 +144,25 @@
              * On close click
              */
             this.closeClick = function () {
-                bignav_elem.removeClass('bignav-open');
+                bignav_elem.addClass('bignav-closing');
 
-                // Restore document scrollbar when nav closed
-                $('html').css({
-                    overflow : default_doc_overflow
-                })
+                // trigger beforeOnClose immediately
+                settings.beforeOnClose($this.getData());
+                
+                setTimeout(function() {
+                    bignav_elem.removeClass('bignav-open bignav-closing');
+
+                    // Restore document scrollbar when nav closed
+                    $('html').css({
+                        'overflow'      : default_doc_overflow,
+                        'margin-right'  : 0
+                    });
+
+                    // trigger onOpen callback
+                    settings.onClose($this.getData());
+                }, 500);
+
+
 
                 return false;
             };
@@ -125,8 +172,20 @@
              */
             this.setHeight = function() {
 
+                var subtractHeight  =   settings.subtractHeight;
+
+                // If offsetTop is set
+                if(settings.offsetTop!==0) {
+                    bignav_elem.css({
+                        'top' : settings.offsetTop
+                    });
+                    
+                    // offsetTop to be included in the height subtraction
+                    subtractHeight = (settings.subtractHeight + settings.offsetTop);
+                }
+                
                 // Check for subtractHeight setting
-                if(settings.subtractHeight!==0) {
+                if(subtractHeight!==0) {
 
                     // Reset height
                     bignav_elem.css({
@@ -139,7 +198,7 @@
 
                     // set new height of bignav
                     bignav_elem.css({
-                        'height' : (bignav_height - settings.subtractHeight) + 'px'
+                        'height' : (bignav_height - subtractHeight) + 'px'
                     })
                 }
 
@@ -151,7 +210,7 @@
              */
             this.subNavs = function() {
                 // Get all sub nav uls
-                var sub_navs = bignav_elem.find('ul.sub-nav');
+                var sub_navs = bignav_elem.find('ul.sub-nav, ul.sub-menu');
 
                 // Loop over each
                 sub_navs.each(function() {
@@ -239,7 +298,33 @@
 
                 return false;
 
-            }
+            };
+
+
+            // Gets relevant callback data of this object
+            this.getData = function() {
+                return {
+                    "navHeight"         : bignav_elem.height(), 
+                    "scrollBarWidth"    : $this.getScrollBarWidth()
+                }
+            };
+
+            /*******
+             * HELPER FUNCTIONS
+             *
+             */
+
+            /**
+             * Gets the width of the browser scrollbar
+             * @returns {number}
+             */
+            this.getScrollBarWidth = function() {
+                var $outer = $('<div>').css({visibility: 'hidden', width: 100, overflow: 'scroll'}).appendTo('body'),
+                    widthWithScroll = $('<div>').css({width: '100%'}).appendTo($outer).outerWidth();
+                $outer.remove();
+                return 100 - widthWithScroll;
+            };
+
         }
 
         /**

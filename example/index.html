@@ -5,11 +5,11 @@
     <!-- / Reload -->
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-    <script type="text/javascript" src="../src/jQuery.bigNav.js"></script>
-    <link rel="stylesheet" type="text/css" href="../src/jQuery.bigNav.css" />
+    <script type="text/javascript" src="../src/jq-bignav.js"></script>
+    <link rel="stylesheet" type="text/css" href="../src/jq-bignav.css" />
 
     <!-- Example Stylesheet -->
-    <link rel="stylesheet" type="text/css" href="../src/jQuery.bigNav.example.css" />
+    <link rel="stylesheet" type="text/css" href="../src/jq-bignav.example.css" />
 
     <script type="text/javascript">
         $(function() {
@@ -19,7 +19,27 @@
                 navTextClose      : 'Close',
                 subNavTextOpen    : '+',
                 subNavTextClose   : '-',
-                subtractHeight    : 100
+                subtractHeight    : 100,
+
+                /**
+                 * As the navigation bar is disabled when the nav is open
+                 * it can nudge the content to the right. The object returned
+                 * in these callbacks can help mitigate this problem, like so:
+                 * @param obj
+                 */
+                onOpen          : function(obj) {
+                    $('header .wrapper').css({
+                        'padding-right' : obj.scrollBarWidth
+                    });
+                },
+                beforeOnClose   : function(obj) {
+
+                },
+                onClose         : function(obj) {
+                    $('header .wrapper').css({
+                        'padding-right' : 0
+                    });
+                }
             });
         });
     </script>
