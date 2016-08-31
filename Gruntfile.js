@@ -21,7 +21,7 @@ module.exports = function(grunt) {
                     ]
                 },
                 files: {
-                    'dist/jQuery.bigNav.min.css': 'src/jQuery.bigNav.less'
+                    'dist/jq-bignav.min.css': 'src/jq-bignav.less'
                 }
             },
 
@@ -30,8 +30,8 @@ module.exports = function(grunt) {
                     compress: false
                 },
                 files: [{
-                    'src/jQuery.bigNav.css'         : 'src/jQuery.bigNav.less',
-                    'src/jQuery.bigNav.example.css' : 'src/jQuery.bigNav.example.less'
+                    'src/jq-bignav.css'         : 'src/jq-bignav.less',
+                    'src/jq-bignav.example.css' : 'src/jq-bignav.example.less'
                 }]
             }
         },
@@ -39,7 +39,7 @@ module.exports = function(grunt) {
         uglify: {
             production: {
                 files: {
-                    'dist/jQuery.bigNav.min.js': ['src/jQuery.bigNav.js']
+                    'dist/jq-bignav.min.js': ['src/jq-bignav.js']
                 }
             }
         },
