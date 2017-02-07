@@ -25,7 +25,7 @@
         /**
          * Convert bignav to jQ element
          */
-        var bignav_elem = $(this.selector);
+        var bignav_elem = $(this);
         bignav_elem.removeClass('hidden');
 
         /**
