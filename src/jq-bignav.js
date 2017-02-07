@@ -319,6 +319,9 @@
                     return;
                 }
 
+                // Close menu if open
+                $this.closeClick();
+
                 // Merge with existing settings
                 settings = $.extend(settings, new_settings);
 
