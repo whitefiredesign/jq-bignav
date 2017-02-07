@@ -117,7 +117,8 @@
                 // Bind sub navs
                 $this.subNavs();
 
-                return false;
+                // Return the object to store in var
+                return $this;
             };
 
             /**
@@ -309,6 +310,21 @@
                     "scrollBarWidth"    : $this.getScrollBarWidth()
                 }
             };
+            
+            // Update the settings
+            this.update = function(new_settings) {
+                
+                // If no settings defined
+                if(typeof settings === "undefined") {
+                    return;
+                }
+
+                // Merge with existing settings
+                settings = $.extend(settings, new_settings);
+
+                // Return object
+                return bignav_elem.bigNav(settings);
+            };
 
             /*******
              * HELPER FUNCTIONS
@@ -333,7 +349,7 @@
          */
         $.extend( bignav_elem, new BigNav() );
 
-        bignav_elem.init();
+        return bignav_elem.init();
 
     };
 }(jQuery));

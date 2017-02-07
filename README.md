@@ -48,6 +48,22 @@ onClose           : function(obj) {}    // onClose callback
     </div>
 ```
 
+## Update settings on-the-fly
+```javascript
+// Init bigNav on element
+var bigNav = $('.example').bigNav();
+
+// Change bigNav settings on-the-fly
+$(window).resize(_.debounce(function() {
+	// Once window resized - update! 
+	bigNav.update({
+		offsetTop : $('header.site-header').height()
+   	});
+}, 500));
+
+```
+
+
 ## Version
 0.1.2
 Added `preventDefault()` to trigger
