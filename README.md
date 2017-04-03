@@ -65,6 +65,10 @@ $(window).resize(_.debounce(function() {
 
 
 ## Version
+0.1.3
+Fix issue - https://github.com/whitefiredesign/jq-bignav/issues/5
+Fix issue - https://github.com/whitefiredesign/jq-bignav/issues/4
+
 0.1.2
 Added `preventDefault()` to trigger
 Updated default classes to ensure consistency

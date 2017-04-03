@@ -132,6 +132,14 @@
                     'overflow'      : 'hidden',
                     'margin-right'  : $this.getScrollBarWidth() + 'px'
                 });
+                
+                $('body').css({ // ADD THIS
+                    'position': 'fixed',
+                    'overflow-y': 'hidden',
+                    'width':'100%',
+                    'height':'100%',
+                    '-webkit-overflow-scrolling': 'touch'    
+                });
 
                 // Set the height of bignav_elem
                 $this.setHeight();
@@ -151,7 +159,7 @@
                 // trigger beforeOnClose immediately
                 settings.beforeOnClose($this.getData());
                 
-                setTimeout(function() {
+                //setTimeout(function() { // REMOVE TIMEOUT
                     bignav_elem.removeClass('bignav-open bignav-closing');
 
                     // Restore document scrollbar when nav closed
@@ -160,9 +168,17 @@
                         'margin-right'  : 0
                     });
 
+                    $('body').css({
+                        'position': 'static',
+                        'overflow-y': 'auto',
+                        'width':'auto',
+                        'height':'auto',
+                        '-webkit-overflow-scrolling': 'touch'
+                    });
+
                     // trigger onOpen callback
                     settings.onClose($this.getData());
-                }, 500);
+                //}, 500);
 
 
 
