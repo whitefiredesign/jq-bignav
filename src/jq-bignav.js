@@ -26,8 +26,7 @@
          * Convert bignav to jQ element
          */
         var bignav_elem = $(this);
-        bignav_elem.addClass('hidden');
-
+        
         /**
          * Set trigger
          * @type {*|HTMLElement}
@@ -117,6 +116,11 @@
                 // Bind sub navs
                 $this.subNavs();
 
+                // Make sure nav is hidden on load
+                setTimeout(function() {
+                    bignav_elem.addClass('hidden');
+                },500);
+
                 // Return the object to store in var
                 return $this;
             };
@@ -127,22 +131,25 @@
             this.openClick = function () {
 
                 bignav_elem.removeClass('hidden');
+
                 setTimeout(function() {
                     bignav_elem.addClass('bignav-open');
-                },5);
+
+                    $(document).trigger('bignav-open');
+                }, 5);
 
                 // Hide document scrollbar when nav open
                 $('html').css({
                     'overflow'      : 'hidden',
                     'margin-right'  : $this.getScrollBarWidth() + 'px'
                 });
-                
+
                 $('body').css({ // ADD THIS
                     'position': 'fixed',
                     'overflow-y': 'hidden',
                     'width':'100%',
                     'height':'100%',
-                    '-webkit-overflow-scrolling': 'touch'    
+                    '-webkit-overflow-scrolling': 'touch'
                 });
 
                 // Set the height of bignav_elem
@@ -150,7 +157,7 @@
 
                 // trigger onOpen callback
                 settings.onOpen($this.getData());
-                
+
                 return false;
             };
 
@@ -179,9 +186,9 @@
                         'height':'auto',
                         '-webkit-overflow-scrolling': 'touch'
                     });
-                
+
                 setTimeout(function() {
-                    bignav_elem.addClass('hidden');    
+                    bignav_elem.addClass('hidden');
                 },500);
 
                     // trigger onOpen callback
