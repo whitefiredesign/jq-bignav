@@ -26,7 +26,7 @@
          * Convert bignav to jQ element
          */
         var bignav_elem = $(this);
-        bignav_elem.removeClass('hidden');
+        bignav_elem.addClass('hidden');
 
         /**
          * Set trigger
@@ -125,7 +125,11 @@
              * On open click
              */
             this.openClick = function () {
-                bignav_elem.addClass('bignav-open');
+
+                bignav_elem.removeClass('hidden');
+                setTimeout(function() {
+                    bignav_elem.addClass('bignav-open');
+                },5);
 
                 // Hide document scrollbar when nav open
                 $('html').css({
@@ -175,6 +179,10 @@
                         'height':'auto',
                         '-webkit-overflow-scrolling': 'touch'
                     });
+                
+                setTimeout(function() {
+                    bignav_elem.addClass('hidden');    
+                },500);
 
                     // trigger onOpen callback
                     settings.onClose($this.getData());
@@ -372,3 +380,4 @@
 
     };
 }(jQuery));
+
