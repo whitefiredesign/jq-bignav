@@ -1,6 +1,6 @@
 {
   "name": "jq-bignav",
-  "version": "0.1.1",
+  "version": "0.1.4",
   "description": "A simple jQuery navigation solution for all screen sizes",
   "author": "Joe Buckle <joe@white-fire.co.uk>",
   "license": "MIT"

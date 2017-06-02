@@ -273,6 +273,10 @@
                             $this.showSubNav(that, 0);
                         }
                     });
+
+                    if($(this).hasClass('auto-open')) {
+                        that.next().trigger('click');
+                    }
                 });
 
                 return false;
