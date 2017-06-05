@@ -65,6 +65,9 @@ $(window).resize(_.debounce(function() {
 
 
 ## Version
+0.1.5
+Added sub-sub nav possibility
+
 0.1.4
 Ensure sub navigation sections open when manually specified
 

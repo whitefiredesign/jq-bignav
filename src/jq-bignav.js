@@ -245,14 +245,26 @@
                 // Get all sub nav uls
                 var sub_navs = bignav_elem.find('ul.sub-nav, ul.sub-menu');
 
+                // Set counter for slight delay opening each sub nav for auto-open
+                // As they will open at the same time
+
                 // Loop over each
                 sub_navs.each(function() {
 
                     // Always make sure we can access this element inside any context
-                    var that = $(this);
+                    var that    = $(this);
 
-                    // Add default expand/retract button
-                    that.after('<span class="bignav-sub-open">'+settings.subNavTextOpen+'</span>');
+                    // If sub nav has auto-open class
+                    if($(this).hasClass('auto-open')) {
+                        that.toggleClass('sub-open');
+                        $this.showSubNav(that, 1, 250);
+                        
+                        // Add default expand/retract button (Close by default)
+                        that.after('<span class="bignav-sub-open">'+settings.subNavTextClose+'</span>');
+                    } else {
+                        // Add default expand/retract button (Open by default)
+                        that.after('<span class="bignav-sub-open">'+settings.subNavTextOpen+'</span>');
+                    }
 
                     // Bind click events. Next element is button we just created
                     that.next().on('click', function() {
@@ -274,9 +286,6 @@
                         }
                     });
 
-                    if($(this).hasClass('auto-open')) {
-                        that.next().trigger('click');
-                    }
                 });
 
                 return false;
@@ -291,13 +300,29 @@
              *      - 0 = close 1 = open
              * @returns {boolean}
              */
-            this.showSubNav = function(subNavEl, state) {
+            this.showSubNav = function(subNavEl, state, parent_delay) {
+
+                // Default parent delay
+                parent_delay = (typeof parent_delay !== 'undefined') ?  parent_delay : 0;
 
                 // Get the element height
-                var subNavHeight = subNavEl.height();
+                var subNavHeight    = subNavEl.height();
+
+                // See if there are any parents (ie.. in sub sub instance)
+                var parents         = subNavEl.parents('.sub-nav');
 
                 // Trigger open state
                 if(state==1) {
+
+                    // If there are parents recalculate height of the sub nav section
+                    if(parents.length>0) {
+                        setTimeout(function() {
+                            $(parents[0]).css({
+                                'max-height'    : ($(parents[0]).height() + subNavHeight) + 'px'
+                            })
+                        }, parent_delay);
+
+                    }
 
                     subNavEl.css({
                         'display'       : 'block',
@@ -312,6 +337,7 @@
                             'transition'    : 'max-height 0.15s ease-out'
                         });
                     },1);
+
 
                 }
 
