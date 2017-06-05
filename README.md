@@ -48,7 +48,20 @@ onClose           : function(obj) {}    // onClose callback
     </div>
 ```
 
-## Update settings on-the-fly
+## Useful features
+### Auto open
+```html
+<ul class="sub-nav auto-open">
+...
+```
+
+### Force no transition on sub nav
+```html
+<ul class="sub-nav no-transition">
+...
+```
+
+### Update settings on-the-fly
 ```javascript
 // Init bigNav on element
 var bigNav = $('.example').bigNav();
@@ -63,8 +76,24 @@ $(window).resize(_.debounce(function() {
 
 ```
 
+## Development
+To run the watch process type
+
+```
+grunt
+```
+
+To build for production type
+
+```
+grunt build
+```
+
 
 ## Version
+0.1.6
+Added option for no transition on sub navs
+
 0.1.5
 Added sub-sub nav possibility
 

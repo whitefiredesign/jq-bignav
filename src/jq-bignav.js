@@ -5,14 +5,14 @@
             'navButtonClass'    : 'bignav-trigger', // Class for Nav Button Trigger
             'navTextOpen'       : 'Open',           // Text inside Nav Button when nav closed
             'navTextClose'      : 'Close',          // Test inside Nav Button when nav open
-            'subNavTextOpen'    : '+',              
+            'subNavTextOpen'    : '+',
             'subNavTextClose'   : '-',
             'subtractHeight'    : 0,                // Subtract height of nav in pixels 
                                                     // Useful when using fixed header/footer and have to offset nav
             'offsetTop'         : 0,                // Offset nav from top
             'onOpen'            : function(obj) {
                 return false;                       // onOpen callback
-            },                                      
+            },
             'beforeOnClose'     : function(obj) {
                 return false;                       // beforeOnClose callback
             },
@@ -26,7 +26,7 @@
          * Convert bignav to jQ element
          */
         var bignav_elem = $(this);
-        
+
         /**
          * Set trigger
          * @type {*|HTMLElement}
@@ -112,7 +112,7 @@
                         $this.closeClick();
                     }
                 });
-                
+
                 // Bind sub navs
                 $this.subNavs();
 
@@ -169,30 +169,30 @@
 
                 // trigger beforeOnClose immediately
                 settings.beforeOnClose($this.getData());
-                
+
                 //setTimeout(function() { // REMOVE TIMEOUT
-                    bignav_elem.removeClass('bignav-open bignav-closing');
+                bignav_elem.removeClass('bignav-open bignav-closing');
 
-                    // Restore document scrollbar when nav closed
-                    $('html').css({
-                        'overflow'      : default_doc_overflow,
-                        'margin-right'  : 0
-                    });
+                // Restore document scrollbar when nav closed
+                $('html').css({
+                    'overflow'      : default_doc_overflow,
+                    'margin-right'  : 0
+                });
 
-                    $('body').css({
-                        'position': 'static',
-                        'overflow-y': 'auto',
-                        'width':'auto',
-                        'height':'auto',
-                        '-webkit-overflow-scrolling': 'touch'
-                    });
+                $('body').css({
+                    'position': 'static',
+                    'overflow-y': 'auto',
+                    'width':'auto',
+                    'height':'auto',
+                    '-webkit-overflow-scrolling': 'touch'
+                });
 
                 setTimeout(function() {
                     bignav_elem.addClass('hidden');
                 },500);
 
-                    // trigger onOpen callback
-                    settings.onClose($this.getData());
+                // trigger onOpen callback
+                settings.onClose($this.getData());
                 //}, 500);
 
 
@@ -212,11 +212,11 @@
                     bignav_elem.css({
                         'top' : settings.offsetTop
                     });
-                    
+
                     // offsetTop to be included in the height subtraction
                     subtractHeight = (settings.subtractHeight + settings.offsetTop);
                 }
-                
+
                 // Check for subtractHeight setting
                 if(subtractHeight!==0) {
 
@@ -258,7 +258,7 @@
                     if($(this).hasClass('auto-open')) {
                         that.toggleClass('sub-open');
                         $this.showSubNav(that, 1, 250);
-                        
+
                         // Add default expand/retract button (Close by default)
                         that.after('<span class="bignav-sub-open">'+settings.subNavTextClose+'</span>');
                     } else {
@@ -324,19 +324,22 @@
 
                     }
 
-                    subNavEl.css({
-                        'display'       : 'block',
-                        'max-height'    : 0,
-                        'transition'    : 'none'
-                    });
-
-                    // Immediately after new css block set run max-height animation
-                    setTimeout(function() {
+                    // Force transition is not active
+                    if(!subNavEl.hasClass('no-transition')) {
                         subNavEl.css({
-                            'max-height'    : subNavHeight + 'px',
-                            'transition'    : 'max-height 0.15s ease-out'
+                            'display': 'block',
+                            'max-height': 0,
+                            'transition': 'none'
                         });
-                    },1);
+
+                        // Immediately after new css block set run max-height animation
+                        setTimeout(function () {
+                            subNavEl.css({
+                                'max-height': subNavHeight + 'px',
+                                'transition': 'max-height 0.15s ease-out'
+                            });
+                        }, 1);
+                    }
 
 
                 }
@@ -344,19 +347,22 @@
                 // Trigger close state
                 if(state==0) {
 
-                    subNavEl.css({
-                        'max-height'    : 0,
-                        'transition'    : 'max-height 0.15s ease-in'
-                    });
-
-                    // In this case wait for animation to finish before assigning display:none
-                    setTimeout(function() {
+                    // Force transition is not active
+                    if(!subNavEl.hasClass('no-transition')) {
                         subNavEl.css({
-                            'max-height'    : subNavHeight + 'px',
-                            'display'       : 'none',
-                            'transition'    : 'none'
+                            'max-height': 0,
+                            'transition': 'max-height 0.15s ease-in'
                         });
-                    },155);
+
+                        // In this case wait for animation to finish before assigning display:none
+                        setTimeout(function () {
+                            subNavEl.css({
+                                'max-height': subNavHeight + 'px',
+                                'display': 'none',
+                                'transition': 'none'
+                            });
+                        }, 155);
+                    }
                 }
 
                 return false;
@@ -367,14 +373,14 @@
             // Gets relevant callback data of this object
             this.getData = function() {
                 return {
-                    "navHeight"         : bignav_elem.height(), 
+                    "navHeight"         : bignav_elem.height(),
                     "scrollBarWidth"    : $this.getScrollBarWidth()
                 }
             };
-            
+
             // Update the settings
             this.update = function(new_settings) {
-                
+
                 // If no settings defined
                 if(typeof settings === "undefined") {
                     return;
@@ -417,4 +423,3 @@
 
     };
 }(jQuery));
-
