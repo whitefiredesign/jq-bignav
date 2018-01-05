@@ -130,6 +130,14 @@
              */
             this.openClick = function () {
 
+                // Add placeholder background
+                $('body').prepend('<div class="bignav-background" />');
+                $('.bignav-background').css({
+                    'height'    : $(window).height(),
+                    'width'     : $(window).width(),
+                    'background' : 'white'
+                });
+
                 bignav_elem.removeClass('hidden');
 
                 setTimeout(function() {
@@ -144,7 +152,7 @@
                     'margin-right'  : $this.getScrollBarWidth() + 'px'
                 });
 
-                $('body').css({ // ADD THIS
+                $('body').css({
                     'position': 'fixed',
                     'overflow-y': 'hidden',
                     'width':'100%',
@@ -170,7 +178,6 @@
                 // trigger beforeOnClose immediately
                 settings.beforeOnClose($this.getData());
 
-                //setTimeout(function() { // REMOVE TIMEOUT
                 bignav_elem.removeClass('bignav-open bignav-closing');
 
                 // Restore document scrollbar when nav closed
@@ -187,15 +194,21 @@
                     '-webkit-overflow-scrolling': 'touch'
                 });
 
+                // Remove placeholder background
+                $('.bignav-background').css({
+                    'background' : 'transparent'
+                });
+
+                setTimeout(function() {
+                    $('.bignav-background').remove();
+                }, 500);
+
                 setTimeout(function() {
                     bignav_elem.addClass('hidden');
                 },500);
 
                 // trigger onOpen callback
                 settings.onClose($this.getData());
-                //}, 500);
-
-
 
                 return false;
             };

@@ -1,0 +1,17 @@
+{
+  "name": "jq-bignav",
+  "description": "A simple jQuery navigation solution for all screen sizes",
+  "author": "Joe Buckle <joe@white-fire.co.uk>",
+  "license": "MIT",
+  "homepage": "https://github.com/whitefiredesign/jq-bignav",
+  "_release": "98ffae3407",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "98ffae34077f7e7069e0097bcca90a5a5f86bd1f"
+  },
+  "_source": "https://github.com/whitefiredesign/jq-bignav.git",
+  "_target": "*",
+  "_originalSource": "jq-bignav",
+  "_direct": true
+}
