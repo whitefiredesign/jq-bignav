@@ -107,8 +107,7 @@
                             .removeClass('bignav-open')
                             .addClass   ('bignav-closed')
                             .html       (settings.navTextOpen);
-
-
+                        
                         $this.closeClick();
                     }
                 });
@@ -120,6 +119,15 @@
                 setTimeout(function() {
                     bignav_elem.addClass('hidden');
                 },500);
+
+                // Close bigNav if escape key pressed
+                $(document).keyup(function(e) {
+                    if (e.keyCode == 27) {
+                        if(trigger.hasClass('bignav-open')) {
+                            trigger.first().click();
+                        }
+                    }
+                });
 
                 // Return the object to store in var
                 return $this;
@@ -165,6 +173,7 @@
 
                 // trigger onOpen callback
                 settings.onOpen($this.getData());
+
 
                 return false;
             };
