@@ -278,7 +278,6 @@
 
                     // If sub nav has auto-open class
                     if($(this).hasClass('auto-open') || $(this).parent().hasClass('auto-open')) {
-                        console.log('hello world');
                         that.toggleClass('sub-open');
                         $this.showSubNav(that, 1, 250);
 
